@@ -10,10 +10,10 @@ struct Alert {
 	string status;
 };
 
-// declare function to check limit
+// declare function to check limit ---> amal
 
-// declare function to generate alert for over usage
+// declare function to generate alert for over usage ---> amal
 
-// declare function to resolve alert
+// declare function to resolve alert ---> judy
 
-// declare function to show all unresolved alerts
+// declare function to show all unresolved alerts ---> aya

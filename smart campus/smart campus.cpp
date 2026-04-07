@@ -11,6 +11,7 @@ int main(){
 	building buildings[10];
 	EnergyReading readings[20];
 	int building_count = 2;
+	int reading_count = 3;
 	int alert_count = 0;
 
 }
