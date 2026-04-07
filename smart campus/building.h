@@ -16,6 +16,6 @@ struct building
 
 
 // declare function to add new building --> basmala
-void AddBuilding(building buildings[]);
+void AddBuilding(building &buildings,int &building_counter);
 
 

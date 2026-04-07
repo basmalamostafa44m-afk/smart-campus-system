@@ -7,5 +7,6 @@
 using namespace std;
 // define function to add new energy reading --> basmala
 void AddEnergyReading(building buildings[],EnergyReading readings[]){
+
 	
 }
