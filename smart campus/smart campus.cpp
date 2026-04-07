@@ -8,6 +8,6 @@
 using namespace std;
 int main(){
 
-
+	int building_count = 2;
 
 }
