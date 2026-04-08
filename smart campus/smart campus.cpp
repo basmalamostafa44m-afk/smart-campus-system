@@ -7,7 +7,6 @@
 #include "admin.h"
 using namespace std;
 int main() {
-
 	const int Number_of_building = 10;
 	const int Number_of_Energy_reading = 30;
 	const int Number_of_Alerts = 20;
@@ -23,5 +22,4 @@ int main() {
 	int reading_counter = 3;// to keep track of the number of energy readings added
 	Alert alerts[Number_of_Alerts];// Array os alerts 
 	Admin admins[Number_of_Admins];// Array of admin 
-	
 }
