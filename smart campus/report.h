@@ -29,6 +29,7 @@ void calculateTotalCampusConsumption(building buildings[], const int Number_of_b
 //declare function to find the most efficient building--> Eman
 void findMostEfficientBuilding(building buildings[], const int Number_of_building);
 
+
 //declare function to find the least efficient building--> Eman
 void findLeastEfficientBuilding(building buildings[], const int Number_of_building);
 
