@@ -8,9 +8,9 @@
 using namespace std;
 // define any functions related to generating reports in this file ---> Eman
 
+
 //define function to generate monthly campus report
-void generateMonthlyCampusReport(building buildings[], Alert alerts[], const int Number_of_building, 
-    const int Number_of_Alerts, int numberOfUnresolvedAlerts, int numberOfResolvedAlerts) {
+void generateMonthlyCampusReport(building buildings[], const int Number_of_building, int numberOfUnresolvedAlerts, int numberOfResolvedAlerts) {
 
     calculateTotalCampusConsumption(buildings, Number_of_building);
     findMostEfficientBuilding(buildings, Number_of_building);
@@ -19,7 +19,7 @@ void generateMonthlyCampusReport(building buildings[], Alert alerts[], const int
 	cout << "Number of resolved alerts: " << numberOfResolvedAlerts << endl;
 }
 
-// define function to calculateTotalCampusConsumption
+// define function to calculate Total Campus Consumption
 void calculateTotalCampusConsumption(building buildings[], const int Number_of_building) {
 
     float total_campus_consumption = 0.0 ;

@@ -7,7 +7,6 @@
 #include "admin.h"
 using namespace std;
 int main() {
-
 	const int Number_of_building = 10;
 	const int Number_of_Energy_reading = 30;
 	const int Number_of_Alerts = 20;

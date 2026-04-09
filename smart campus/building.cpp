@@ -17,9 +17,10 @@ void AddBuilding(building &buildings,int &building_counter)
 	cout << "Enter building ID: ";
 	cin >> id;
 	cout << "Enter building name: ";
-	cin >> name;
+	cin.ignore(); // Ignore the newline character left in the input buffer
+	getline(cin, name);
 	cout << "Enter building type: ";
-	cin >> type;
+	getline(cin, type);
 	cout << "Enter monthly limit: ";
 	cin >> monthly_limit;
 	buildings.ID = id;
@@ -29,4 +30,6 @@ void AddBuilding(building &buildings,int &building_counter)
 	buildings.Total_consumption = 0.0; // Initialize total consumption to 0
 	buildings.Efficiency_Score = 100.0; // Initialize efficiency score to 100
 	building_counter++; // Increment the building counter
+	cout << "Building added successfully!" << endl;
+	
 }

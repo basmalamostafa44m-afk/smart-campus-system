@@ -9,5 +9,5 @@ struct EnergyReading {
 	float consumption_value;
 };
 // declare function to add new energy reading --> basmala
-void AddEnergyReading(building buildings[],EnergyReading readings[]);
+void AddEnergyReading(building buildings[], int& building_counter, EnergyReading readings[], int& reading_counter);
 
