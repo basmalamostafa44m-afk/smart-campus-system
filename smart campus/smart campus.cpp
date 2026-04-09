@@ -23,5 +23,7 @@ int main() {
 	int reading_counter = 3;// to keep track of the number of energy readings added
 	Alert alerts[Number_of_Alerts];// Array os alerts 
 	Admin admins[Number_of_Admins];// Array of admin 
+	int numberOfUnresolvedAlerts = 0 ;
+	int numberOfResolvedAlerts = 0 ;
 	
 }
