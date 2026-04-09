@@ -9,7 +9,6 @@ using namespace std;
 
 // define any functions related to generating reports in this file ---> Eman
 
-
 //define function to generate monthly campus report
 void generateMonthlyCampusReport(building buildings[], const int Number_of_building, int numberOfUnresolvedAlerts, int numberOfResolvedAlerts) {
 
