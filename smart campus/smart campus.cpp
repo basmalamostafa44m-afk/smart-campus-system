@@ -5,6 +5,7 @@
 #include "alert.h"
 #include "reading.h"
 #include "admin.h"
+#include"report.h"
 using namespace std;
 int main() {
 	const int Number_of_building = 10;
@@ -24,5 +25,5 @@ int main() {
 	Admin admins[Number_of_Admins];// Array of admin 
 	int numberOfUnresolvedAlerts = 0 ;
 	int numberOfResolvedAlerts = 0 ;
-	
+
 }
