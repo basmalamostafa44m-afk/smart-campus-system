@@ -28,7 +28,7 @@ void calculateTotalCampusConsumption(building buildings[], const int Number_of_b
         total_campus_consumption += buildings[i].Total_consumption ;
     }
 
-    cout << "The total campus consumption : " << total_campus_consumption << endl ;
+    cout << "The total campus consumption : " << total_campus_consumption <<" kWh "<<endl;
 }
 
 // define function to find the most efficient building
