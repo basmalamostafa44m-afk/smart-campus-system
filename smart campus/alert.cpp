@@ -17,3 +17,22 @@ using namespace std;
 
 
 // define function to show all unresolved alerts ---> aya
+void displayOverconsumption(Alert alerts[], int size)
+{
+	bool found = false;
+	cout << "___Unresolved Alerts___" << endl;
+	for (int i = 0; i < size; i++)
+	{
+		if (alerts[i].status == "Unresolved")
+		{
+			cout << "Alert ID: " << alerts[i].AlertId << endl;
+			cout << "Bulding ID: " << alerts[i].BuldingId << endl;
+			cout << "Month: " << alerts[i].month << endl;
+			cout << "over_usage_amount: " << alerts[i].over_usage_amount << endl;
+			cout << "-----------------------" << endl;
+			found = true;
+		}	
+	}
+	if(!found)
+		cout<< "No unresolved alerts found." << endl;
+}
