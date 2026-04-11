@@ -17,3 +17,4 @@ struct Alert {
 // declare function to resolve alert ---> judy
 
 // declare function to show all unresolved alerts ---> aya
+void displayOverconsumption(Alert alerts[], int alert_counter);
