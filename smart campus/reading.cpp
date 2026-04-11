@@ -6,7 +6,7 @@
 #include "admin.h"
 using namespace std;
 // define function to add new energy reading --> basmala
-void AddEnergyReading(building buildings[], int& building_counter, EnergyReading readings[], int& reading_counter) {
+void AddEnergyReading(building buildings[], int& building_counter, EnergyReading readings[], int& reading_counter,Alert alerts[]) {
 	do {
 		cout << "select building ID: ";
 		int id;

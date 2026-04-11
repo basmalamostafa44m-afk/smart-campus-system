@@ -8,7 +8,7 @@ struct Alert {
 	string month;
 	float over_usage_amount;
 	string status;
-}alerts[20];
+};
 int alert_counter = 0;
 
 // declare function to check limit ---> amal
