@@ -17,7 +17,7 @@ void AddBuilding(building &buildings,int &building_counter)
 	cout << "Enter building ID: ";
 	cin >> id;
 	cout << "Enter building name: ";
-	cin.ignore(); // Ignore the newline character left in the input buffer
+	cin.ignore(); // Ignore the newline character left in the input buffer 
 	getline(cin, name);
 	cout << "Enter building type: ";
 	getline(cin, type);
