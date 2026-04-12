@@ -12,7 +12,7 @@ struct Alert {
 
 
 // declare function to generate alert for over usage ---> amal
-void check_alert_generate (float consumtion_valve, float monthly_limit,string building_name ,int building_id,string month,Alert alerts[],int numberOfUnresolvedAlerts);
+void check_alert_generate (float consumtion_valve, float monthly_limit,string building_name ,int building_id,string month,Alert alerts[], int &alert_counter ,int & numberOfUnresolvedAlerts);
 
 
 // declare function to resolve alert ---> judy
