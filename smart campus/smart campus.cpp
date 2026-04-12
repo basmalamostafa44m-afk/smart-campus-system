@@ -24,7 +24,8 @@ int main() {
 	Alert alerts[Number_of_Alerts];// Array os alerts
 	Admin admins[Number_of_Admins];// Array of admin 
 	int numberOfUnresolvedAlerts = 0 ;
-	int numberOfResolvedAlerts = 0 ;
-
-
+	int numberOfResolvedAlerts = 0;
+	int alert_counter = 0;
+	
+	
 }
