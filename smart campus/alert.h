@@ -14,7 +14,7 @@ int alert_counter = 0;
 // declare function to check limit ---> amal
 
 // declare function to generate alert for over usage ---> amal
-void check_alert_generate (float consumtion_valve, float monthly_limit,string building_name ,int building_id,string month,Alert alerts[]);
+void check_alert_generate (float consumtion_valve, float monthly_limit,string building_name ,int building_id,string month,Alert alerts[],int numberOfUnresolvedAlerts);
 
 
 // declare function to resolve alert ---> judy

@@ -9,7 +9,7 @@ using namespace std;
 
 
 // define function to generate alert for over usage ---> amal<
-void check_alert_generate(float consumtion_value, float monthly_limit, string building_name, int building_id,string month,Alert alerts[]) {
+void check_alert_generate(float consumtion_value, float monthly_limit, string building_name, int building_id,string month,Alert alerts[],int & numberOfUnresolvedAlerts) {
 
 	if (consumtion_value > monthly_limit) {
 		float overusage = consumtion_value - monthly_limit;
@@ -25,6 +25,7 @@ void check_alert_generate(float consumtion_value, float monthly_limit, string bu
 		alerts[alert_counter].over_usage_amount = overusage;
 		alerts[alert_counter].month = month;
 		alert_counter++;
+		numberOfUnresolvedAlerts++;
 
 	}
 }

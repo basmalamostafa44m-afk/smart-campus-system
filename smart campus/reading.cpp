@@ -51,7 +51,7 @@ void AddEnergyReading(building buildings[], int& building_counter, EnergyReading
 			// Update building's total consumption
 			for (int i = 0; i < building_counter; i++) {
 				if (buildings[i].ID == id && buildings[i].Name == name) {
-					check_alert_generate(consumption_value, buildings[i].Monthly_Limit, name, id,month,alerts);
+					check_alert_generate(consumption_value, buildings[i].Monthly_Limit, name, id,month,alerts );
 					buildings[i].Total_consumption += consumption_value;
 					break;
 				}
