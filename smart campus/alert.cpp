@@ -6,7 +6,7 @@
 #include "admin.h"
 using namespace std;
 // define function to generate alert for over usage ---> amal
-void check_alert_generate(float consumtion_value, float monthly_limit, string building_name, int building_id,string month,Alert alerts[],int &alert_counter) {
+void check_alert_generate(float consumtion_value, float monthly_limit, string building_name, int building_id,string month,Alert alerts[],int &alert_counter,int & numberOfUnresolvedAlerts) {
 
 
 // define function to generate alert for over usage ---> amal<
