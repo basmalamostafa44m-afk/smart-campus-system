@@ -29,8 +29,37 @@ void check_alert_generate(float consumtion_value, float monthly_limit, string bu
 
 
 // define function to resolve alert ---> judy
+#include <iostream>
+#include <string>
+using namespace std;
+//resolve alert function declaration and defenition (before main)
+void resolveAlert(Alert alerts[Number_of_Alerts]) {
+	bool found = false;
+	for (int i = 0; i < Number_of_Alerts; i++) {
+		if (alerts[i].status == "Unresolved") {
+			cout << alerts[i].AlertID << " , " << alerts[i].BuildingID << " , " << alerts[i].month << " , " << alerts[i].over_usage_amount;
+			found = true;
+		}
+	}
+	if (found == false) {
+		cout << "No pending alerts to resolve" << endl;
+		return;
+	}
 
-
+	int alertID;
+	cout << " Please enter alert ID to resolve : ";
+	cin >> alertID;
+	bool ID_found = false;
+	for (int i = 0; i < Number_of_Alerts; i++) {
+		if (alerts[i].AlertID == alertID) {
+			alerts[i].status = "Resolved";
+			cout << "Alert resolved successfully!!";
+			ID_found = true;
+			break;
+		}
+	}
+	if (ID_found == false)
+		cout << "Alert ID is not found!";
 
 // define function to show all unresolved alerts ---> aya
 void displayOverconsumption(Alert alerts[], int alert_counter)
