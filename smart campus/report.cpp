@@ -12,6 +12,7 @@ using namespace std;
 //define function to generate monthly campus report
 void generateMonthlyCampusReport(building buildings[],int building_counter, int numberOfUnresolvedAlerts, int numberOfResolvedAlerts) {
 
+	cout << " ______MONTHLY CAMPUS REPORT______ " << endl;
     calculateTotalCampusConsumption(buildings, building_counter);
     findMostEfficientBuilding(buildings, building_counter);
     findLeastEfficientBuilding(buildings, building_counter);
