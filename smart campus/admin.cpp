@@ -7,11 +7,6 @@
 using namespace std;
 //define function to validate admin login ---> sama
 
-#include <iostream>
-#include <string>
-#include "admin.h"
-
-using namespace std;
 
 bool Admin_login(Admin admins[], int current_count, string inputUser_name, string inputPassword) {
     for (int i = 0; i < current_count; i++) {
