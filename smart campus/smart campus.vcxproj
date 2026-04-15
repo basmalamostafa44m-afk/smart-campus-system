@@ -126,6 +126,7 @@
     <ClCompile Include="admin.cpp" />
     <ClCompile Include="alert.cpp" />
     <ClCompile Include="building.cpp" />
+    <ClCompile Include="filehandling.cpp" />
     <ClCompile Include="reading.cpp" />
     <ClCompile Include="report.cpp" />
     <ClCompile Include="smart campus.cpp" />
@@ -134,6 +135,7 @@
     <ClInclude Include="admin.h" />
     <ClInclude Include="alert.h" />
     <ClInclude Include="building.h" />
+    <ClInclude Include="filehandling.h" />
     <ClInclude Include="reading.h" />
     <ClInclude Include="report.h" />
   </ItemGroup>

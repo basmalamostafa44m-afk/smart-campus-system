@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "building.h"
 using namespace std;
 
 // Eman declare any functions or structs related to generating reports in this file

@@ -8,7 +8,8 @@ struct Admin {
 	string password;
 };
 // declare function to validate admin login ---> sama
-
+bool Admin_login(string inputUser_name, string inputPassword);
+void admin_signup(string newuser, string newpass);
 
 // declare function to sign up new admin ---> sama
 
