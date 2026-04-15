@@ -15,18 +15,20 @@ bool Admin_login(string inputUser_name, string inputPassword) {
 	}
 	return false;
 }
-void admin_signup(string newuser, string newpass)
-{
-	if (current_admin_numbers < Number_of_Admins) {
-		admins[current_admin_numbers].Admin_ID = current_admin_numbers + 1;
-		admins[current_admin_numbers].user_name = newuser;
-		admins[current_admin_numbers].password = newpass;
-		current_admin_numbers++;
-		cout << " Admin created successfully" << endl;
-	}
-	else
-		cout << " sorry! Admin database is full ";
+
+
+void admin_signup(Admin admins[], int &current_count, string newuser, string newpass) {
+    if (current_count < Number_of_Admins) { 
+        admins[current_count].Admin_ID = current_count + 1;
+        admins[current_count].user_name = newuser;
+        admins[current_count].password = newpass;
+        current_count++; 
+        cout << " Admin created successfully" << endl;
+    }
+    else {
+        cout << " sorry! Admin database is full " << endl;
+    }
 }
 
 //define function to sign up new admin ---> sama
-
+*/
