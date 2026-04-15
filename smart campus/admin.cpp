@@ -31,4 +31,4 @@ void admin_signup(Admin admins[], int &current_count, string newuser, string new
 }
 
 //define function to sign up new admin ---> sama
-*/
+
