@@ -6,7 +6,7 @@
 #include "admin.h"
 using namespace std;
 //define function to validate admin login ---> sama
-/*
+
 int current_admin_numbers = 0;
 bool Admin_login(string inputUser_name, string inputPassword) {
 		for (int i = 0; i < current_admin_numbers; i++) {
@@ -29,4 +29,4 @@ void admin_signup(string newuser, string newpass)
 }
 
 //define function to sign up new admin ---> sama
-*/
+
