@@ -41,7 +41,7 @@ void loadFiles(building buildings[], int &building_counter, EnergyReading Readin
 
     }
     
-
+   // Closing the file after loading
     read.close();
 }
 
