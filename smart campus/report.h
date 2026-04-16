@@ -19,4 +19,3 @@ void findMostEfficientBuilding(building buildings[], int building_counter);
 
 //declare function to find the least efficient building--> Eman
 void findLeastEfficientBuilding(building buildings[], int building_counter);
-
