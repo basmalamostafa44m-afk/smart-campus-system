@@ -7,8 +7,8 @@
 using namespace std;
 //define function to validate admin login ---> sama
 
-int current_admin_numbers = 0;
-bool Admin_login(string inputUser_name, string inputPassword) {
+int Number_of_Admins = 5;
+bool Admin_login(Admin admins[], int current_admin_numbers, string inputUser_name, string inputPassword) {
 		for (int i = 0; i < current_admin_numbers; i++) {
 			if (admins[i].user_name == inputUser_name && admins[i].password == inputPassword)
 				return true;
@@ -17,12 +17,12 @@ bool Admin_login(string inputUser_name, string inputPassword) {
 }
 
 
-void admin_signup(Admin admins[], int &current_count, string newuser, string newpass) {
-    if (current_count < Number_of_Admins) { 
-        admins[current_count].Admin_ID = current_count + 1;
-        admins[current_count].user_name = newuser;
-        admins[current_count].password = newpass;
-        current_count++; 
+void admin_signup(Admin admins[], int & current_admin_numbers, string newuser, string newpass) {
+    if (current_admin_numbers < Number_of_Admins) {
+        admins[current_admin_numbers].Admin_ID = current_admin_numbers + 1;
+        admins[current_admin_numbers].user_name = newuser;
+        admins[current_admin_numbers].password = newpass;
+        current_admin_numbers++;
         cout << " Admin created successfully" << endl;
     }
     else {
