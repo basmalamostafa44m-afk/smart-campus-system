@@ -6,7 +6,6 @@
 #include "reading.h"
 using namespace std;
 
-
 //define function to sign up new admin ---> sama
 void admin_signup(Admin admins[], int& current_admin_numbers, string newuser, string newpass) {
     if (current_admin_numbers < Number_of_Admins) {
@@ -21,7 +20,7 @@ void admin_signup(Admin admins[], int& current_admin_numbers, string newuser, st
 }
 //define function to validate admin login ---> sama
 string answer;
-bool Admin_login(Admin admins[], int & current_admin_numbers) {
+bool Admin_login(Admin admins[], int& current_admin_numbers) {
     cout << "Welcome to smart campus energy consumption monitor!!" << endl;
     cout << "Do you have an account?";
     cin >> answer;
@@ -42,7 +41,8 @@ bool Admin_login(Admin admins[], int & current_admin_numbers) {
         cout << "please enter username and password for your new account" << endl;
         cin >> newuser;
         cin >> newpass;
-        admin_signup( admins, current_admin_numbers, newuser, newpass);
+        admin_signup(admins, current_admin_numbers, newuser, newpass);
         return true;
     }
+}
 
