@@ -9,7 +9,7 @@ struct Admin {
 	string password;
 };
 // declare function to validate admin login ---> sama
-bool Admin_login(Admin admins[], int current_admin_numbers, string inputUser_name, string inputPassword);
+bool Admin_login(Admin admins[], int& current_admin_numbers);
 void admin_signup(Admin admins[], int& current_admin_numbers, string newuser, string newpass);
 
 
