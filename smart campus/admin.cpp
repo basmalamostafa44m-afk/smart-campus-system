@@ -21,7 +21,7 @@ void admin_signup(Admin admins[], int& current_admin_numbers, string newuser, st
 }
 //define function to validate admin login ---> sama
 string answer;
-bool Admin_login(Admin admins[], int& current_admin_numbers) {
+bool Admin_login(Admin admins[], int & current_admin_numbers) {
     cout << "Welcome to smart campus energy consumption monitor!!" << endl;
     cout << "Do you have an account?";
     cin >> answer;
