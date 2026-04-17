@@ -7,7 +7,6 @@
 using namespace std;
 //define function to validate admin login ---> sama
 
-int Number_of_Admins = 5;
 bool Admin_login(Admin admins[], int current_admin_numbers, string inputUser_name, string inputPassword) {
 		for (int i = 0; i < current_admin_numbers; i++) {
 			if (admins[i].user_name == inputUser_name && admins[i].password == inputPassword)

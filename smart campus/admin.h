@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 using namespace std;
+const int Number_of_Admins = 5;
 // declare admin struct
 struct Admin {
 	int Admin_ID;
