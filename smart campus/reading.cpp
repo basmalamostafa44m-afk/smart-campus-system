@@ -68,11 +68,17 @@ void AddEnergyReading(building buildings[], int& building_counter, EnergyReading
 				calculateEfficiencyScore(buildings, building_counter);
 			}
 		}
-		cout << "Do you want to add another energy reading? (y/n): ";
-		char continue_choice;
+		cout << "1. add another energy reading " << endl;
+		cout << "2. return to main menu " << endl;
+		cout << "3. Quit and save data " << endl;
+		int continue_choice;
 		cin >> continue_choice;
-		if (continue_choice == 'n' || continue_choice == 'N') {
+		if (continue_choice == 2) {
+			menu();
 			break;
+		}
+		else if (continue_choice == 3) {
+			return;
 		}
 	} while (true);
 }

@@ -55,8 +55,10 @@ void displayBuildingInfo(building buildings[], int building_counter) {
 	string building_name;
 	cout << "Enter building name: ";
 	getline(cin, building_name);
+	bool found = false;
 	for (int i = 0; i < building_counter; i++) {
 		if (buildings[i].ID == id && buildings[i].Name == building_name) {
+			bool found = true;
 			cout << "Building ID: " << buildings[i].ID << endl;
 			cout << "Building Name: " << buildings[i].Name << endl;
 			cout << "Building Type: " << buildings[i].type << endl;
@@ -67,4 +69,18 @@ void displayBuildingInfo(building buildings[], int building_counter) {
 			return;
 		}
 	}
+	if(!found) {
+		cout << "Building not found!" << endl;
+	}
+	cout << "1. Back to menu" << endl;
+	cout << "2. Quit and save" << endl;
+	int c;
+	cout << "Enter your choice: ";
+	cin >> c;
+	if (c == 1)
+		menu();
+	else if (c == 2) {
+		return;
+	}
+
 }

@@ -28,12 +28,12 @@ int main() {
 
 	loadFiles(buildings, building_counter, Readings, reading_counter, alerts, alert_counter, admins ,admin_counter, numberOfUnresolvedAlerts, numberOfResolvedAlerts);
 
-	menu();
+	Admin_login(admins, admin_counter);
+	saveData(buildings, building_counter, Readings, reading_counter, alerts, alert_counter, admins, admin_counter, numberOfUnresolvedAlerts, numberOfResolvedAlerts);
 
 }
 void menu() {
 	int choice;
-do{
 	cout << "1.Add a new energy reading" << endl;
 	cout << "2.Display building information" << endl;
 	cout << "3.Generate alerts for overconsumption" << endl;
@@ -66,12 +66,11 @@ do{
 		}
 		else if (choice == 8) {
 			cout << "Logging out..." << endl;
-			return;
+			Admin_login(admins, admin_counter);
 		}
 		else {
 			cout << "Invalid option" << endl;
 			cout << "Enter valid option: ";
 
 		}
-	} while (choice <= 8 && choice >= 1);
 }

@@ -11,15 +11,27 @@ void check_alert_generate(building buildings[], int& building_counter, EnergyRea
 		for (int j = 0; j < building_counter; j++) {
 			if (readings[i].BuildingID == buildings[j].ID) {
 				if (readings[i].consumption_value > buildings[j].Monthly_Limit) {
-					generate_alert_for_over_usage( readings[i].consumption_value, buildings[j].Monthly_Limit, buildings[j].Name, buildings[j].ID, readings[i].month, alerts, alert_counter, numberOfUnresolvedAlerts);
+					generate_alert_for_over_usage(readings[i].consumption_value, buildings[j].Monthly_Limit, buildings[j].Name, buildings[j].ID, readings[i].month, alerts, alert_counter, numberOfUnresolvedAlerts);
 				}
 			}
 		}
 	}
+	cout << "Alerts generated successfully!!" << endl;
+	cout << "1. Back to menu" << endl;
+	cout << "2. Quit and save" << endl;
+	int choice;
+	cout << "Enter your choice: ";
+	cin >> choice;
+	if (choice == 1)
+		menu();
+	else if (choice == 2) {
+		return;
+	}
+}
 
 
-// define function to generate alert for over usage ---> amal<
-void check_alert_generate(float consumtion_value, float monthly_limit, string building_name, int building_id,string month,Alert alerts[],int &alert_counter,int &numberOfUnresolvedAlerts) {
+// define function to generate alert for over usage ---> amal
+void generate_alert_for_over_usage(float consumtion_value, float monthly_limit, string building_name, int building_id,string month,Alert alerts[],int &alert_counter,int &numberOfUnresolvedAlerts) {
 
 	if (consumtion_value > monthly_limit) {
 		float overusage = consumtion_value - monthly_limit;
@@ -40,29 +52,48 @@ void check_alert_generate(float consumtion_value, float monthly_limit, string bu
 
 	
 }
+	}
 
 // define function to resolve alert ---> judy
 void resolveAlert(Alert alerts[],int alert_counter,int &numberOfResolvedAlerts,int &numberOfUnresolvedAlerts) {
-	if (numberOfUnresolvedAlerts == 0) {
-		cout << "There are no unresolved alerts to resolve!" << endl;
+	do {
+		if (numberOfUnresolvedAlerts == 0) {
+			cout << "There are no unresolved alerts to resolve!" << endl;
+			return;
+		}
+		int alertID;
+		cout << " Please enter alert ID to resolve : ";
+		cin >> alertID;
+		bool ID_found = false;
+		for (int i = 0; i < alert_counter; i++) {
+			if (alerts[i].AlertID == alertID) {
+				alerts[i].status = "Resolved";
+				numberOfResolvedAlerts++;
+				numberOfUnresolvedAlerts--;
+				cout << "Alert resolved successfully!!";
+				ID_found = true;
+				break;
+			}
+		}
+		if (ID_found == false)
+			cout << "Alert ID is not found!";
+		cout << "do you to try again? (y/n) : ";
+		char choice;
+		cin >> choice;
+		if (choice == 'n' || choice == 'N')
+			break;
+	} while (true);
+
+	cout << "1. Back to menu" << endl;
+	cout << "2. Quit and save" << endl;
+	int c;
+	cout << "Enter your choice: ";
+	cin >> c;
+	if (c == 1)
+		menu();
+	else if (c == 2) {
 		return;
 	}
-	int alertID;
-	cout << " Please enter alert ID to resolve : ";
-	cin >> alertID;
-	bool ID_found = false;
-	for (int i = 0; i < alert_counter; i++) {
-		if (alerts[i].AlertID == alertID) {
-			alerts[i].status = "Resolved";
-			numberOfResolvedAlerts++;
-			numberOfUnresolvedAlerts--;
-			cout << "Alert resolved successfully!!";
-			ID_found = true;
-			break;
-		}
-	}
-	if (ID_found == false)
-		cout << "Alert ID is not found!";
 }
 
 // define function to show all unresolved alerts ---> aya
@@ -84,4 +115,14 @@ void resolveAlert(Alert alerts[],int alert_counter,int &numberOfResolvedAlerts,i
 		}
 		if (!found)
 			cout << "No unresolved alerts found." << endl;
+		cout << "1. Back to menu" << endl;
+		cout << "2. Quit and save" << endl;
+		int c;
+		cout << "Enter your choice: ";
+		cin >> c;
+		if (c == 1)
+			menu();
+		else if (c == 2) {
+			return;
+		}
 	}

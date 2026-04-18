@@ -18,6 +18,18 @@ void generateMonthlyCampusReport(building buildings[],int building_counter, int 
     findLeastEfficientBuilding(buildings, building_counter);
 	cout << "Number of unresolved alerts: " << numberOfUnresolvedAlerts << endl;
 	cout << "Number of resolved alerts: " << numberOfResolvedAlerts << endl;
+	cout << "-----------------------------" << endl;
+    cout << "1. Back to menu" << endl;
+    cout << "2. Quit and save" << endl;
+    int c;
+    cout << "Enter your choice: ";
+    cin >> c;
+    if (c == 1)
+        menu();
+    else if (c == 2) {
+        return;
+    }
+
 }
 
 // define function to calculate Total Campus Consumption
