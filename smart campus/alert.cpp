@@ -11,36 +11,33 @@ void check_alert_generate(building buildings[], int& building_counter, EnergyRea
 		for (int j = 0; j < building_counter; j++) {
 			if (readings[i].BuildingID == buildings[j].ID) {
 				if (readings[i].consumption_value > buildings[j].Monthly_Limit) {
-					generate_alert_for_over_usage( readings[i].consumption_value, buildings[j].Monthly_Limit, buildings[j].Name, buildings[j].ID, readings[i].month, alerts, alert_counter, numberOfUnresolvedAlerts);
+					generate_alert_for_over_usage(readings[i].consumption_value, buildings[j].Monthly_Limit, buildings[j].Name, buildings[j].ID, readings[i].month, alerts, alert_counter, numberOfUnresolvedAlerts);
 				}
 			}
 		}
 	}
-
-
-// define function to generate alert for over usage ---> amal<
-void check_alert_generate(float consumtion_value, float monthly_limit, string building_name, int building_id,string month,Alert alerts[],int &alert_counter,int &numberOfUnresolvedAlerts) {
-
-	if (consumtion_value > monthly_limit) {
-		float overusage = consumtion_value - monthly_limit;
-		// generating alert
-
-		cout << "-----------ALERT !!-----------" << endl
-			 << "there is an over usage of energy in building named" << building_name << endl
-			 << "whose id is" << building_id << endl
-			 << "the over usage amount= " << overusage;
-
-		alerts[alert_counter].AlertID = alert_counter + 1;
-		alerts[alert_counter].BuildingID = building_id;
-		alerts[alert_counter].over_usage_amount = overusage;
-		alerts[alert_counter].month = month;
-		alerts[alert_counter].status = "Unresolved";
-		alert_counter++;
-		numberOfUnresolvedAlerts++;
-
-	
 }
 
+// define function to generate alert for over usage ---> amal<
+	void generate_alert_for_over_usage(float consumtion_value, float monthly_limit, string building_name, int building_id, string month, Alert alerts[], int& alert_counter, int& numberOfUnresolvedAlerts) {
+
+			float overusage = consumtion_value - monthly_limit;
+
+			cout << "-----------ALERT !!-----------" << endl
+				<< "there is an over usage of energy in building named" << building_name << endl
+				<< "whose id is" << building_id << endl
+				<< "the over usage amount= " << overusage;
+
+			alerts[alert_counter].AlertID = alert_counter + 1;
+			alerts[alert_counter].BuildingID = building_id;
+			alerts[alert_counter].over_usage_amount = overusage;
+			alerts[alert_counter].month = month;
+			alerts[alert_counter].status = "Unresolved";
+			alert_counter++;
+			numberOfUnresolvedAlerts++;
+
+	}
+ 
 // define function to resolve alert ---> judy
 void resolveAlert(Alert alerts[],int alert_counter,int &numberOfResolvedAlerts,int &numberOfUnresolvedAlerts) {
 	if (numberOfUnresolvedAlerts == 0) {
