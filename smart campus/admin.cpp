@@ -8,11 +8,10 @@ using namespace std;
 
 //define function to sign up new admin ---> sama
 void Admin_login(Admin admins[], int& current_admin_numbers) {
-    cout << "Welcome to smart campus energy consumption monitor!!" << endl;
+    
     cout << "Do you have an account?";
 	string answer;
     cin >> answer;
-	cout << admins[0].user_name << " " << admins[0].password << endl;
     if (answer == "yes" || answer == "y" || answer == "Y") {
         string inputUser_name, inputPassword;
         cout << "Enter your username: ";

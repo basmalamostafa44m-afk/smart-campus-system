@@ -17,6 +17,7 @@ void check_alert_generate(building buildings[], int& building_counter, EnergyRea
 		}
 	}
 	cout << "Alerts generated successfully!!" << endl;
+	cout << "_________________________________" << endl;
 	cout << "1. Back to menu" << endl;
 	cout << "2. Quit and save" << endl;
 	int choice;
@@ -36,9 +37,9 @@ void generate_alert_for_over_usage(float consumtion_value, float monthly_limit, 
 			float overusage = consumtion_value - monthly_limit;
 
 			cout << "-----------ALERT !!-----------" << endl
-				<< "there is an over usage of energy in building named" << building_name << endl
-				<< "whose id is" << building_id << endl
-				<< "the over usage amount= " << overusage;
+				<< "there is an over usage of energy in building named " << building_name << endl
+				<< "whose id is " << building_id << endl
+				<< "the over usage amount = " << overusage << endl;
 
 			alerts[alert_counter].AlertID = alert_counter + 1;
 			alerts[alert_counter].BuildingID = building_id;
@@ -50,7 +51,7 @@ void generate_alert_for_over_usage(float consumtion_value, float monthly_limit, 
 
 	
 }
-	}
+
 
 // define function to resolve alert ---> judy
 void resolveAlert(Alert alerts[],int alert_counter,int &numberOfResolvedAlerts,int &numberOfUnresolvedAlerts) {
@@ -81,7 +82,7 @@ void resolveAlert(Alert alerts[],int alert_counter,int &numberOfResolvedAlerts,i
 		if (choice == 'n' || choice == 'N')
 			break;
 	} while (true);
-
+	cout << "_________________________________" << endl;
 	cout << "1. Back to menu" << endl;
 	cout << "2. Quit and save" << endl;
 	int c;
@@ -113,6 +114,7 @@ void resolveAlert(Alert alerts[],int alert_counter,int &numberOfResolvedAlerts,i
 		}
 		if (!found)
 			cout << "No unresolved alerts found." << endl;
+		cout << "_________________________________" << endl;
 		cout << "1. Back to menu" << endl;
 		cout << "2. Quit and save" << endl;
 		int c;

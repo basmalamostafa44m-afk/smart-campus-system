@@ -25,15 +25,15 @@ int numberOfResolvedAlerts = 0;
 void menu();
 
 int main() {
-
 	loadFiles(buildings, building_counter, Readings, reading_counter, alerts, alert_counter, admins ,admin_counter, numberOfUnresolvedAlerts, numberOfResolvedAlerts);
-
+  cout << "Welcome to smart campus energy consumption monitor!!" << endl;
 	Admin_login(admins, admin_counter);
 	saveData(buildings, building_counter, Readings, reading_counter, alerts, alert_counter, admins, admin_counter, numberOfUnresolvedAlerts, numberOfResolvedAlerts);
 
 }
 void menu() {
 	int choice;
+	cout << "____________MAIN MENU______________" << endl;
 	cout << "1.Add a new energy reading" << endl;
 	cout << "2.Display building information" << endl;
 	cout << "3.Generate alerts for overconsumption" << endl;
