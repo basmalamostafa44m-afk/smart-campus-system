@@ -33,22 +33,20 @@ void check_alert_generate(building buildings[], int& building_counter, EnergyRea
 // define function to generate alert for over usage ---> amal
 void generate_alert_for_over_usage(float consumtion_value, float monthly_limit, string building_name, int building_id,string month,Alert alerts[],int &alert_counter,int &numberOfUnresolvedAlerts) {
 
-	if (consumtion_value > monthly_limit) {
-		float overusage = consumtion_value - monthly_limit;
-		// generating alert
+			float overusage = consumtion_value - monthly_limit;
 
-		cout << "-----------ALERT !!-----------" << endl
-			 << "there is an over usage of energy in building named" << building_name << endl
-			 << "whose id is" << building_id << endl
-			 << "the over usage amount= " << overusage;
+			cout << "-----------ALERT !!-----------" << endl
+				<< "there is an over usage of energy in building named" << building_name << endl
+				<< "whose id is" << building_id << endl
+				<< "the over usage amount= " << overusage;
 
-		alerts[alert_counter].AlertID = alert_counter + 1;
-		alerts[alert_counter].BuildingID = building_id;
-		alerts[alert_counter].over_usage_amount = overusage;
-		alerts[alert_counter].month = month;
-		alerts[alert_counter].status = "Unresolved";
-		alert_counter++;
-		numberOfUnresolvedAlerts++;
+			alerts[alert_counter].AlertID = alert_counter + 1;
+			alerts[alert_counter].BuildingID = building_id;
+			alerts[alert_counter].over_usage_amount = overusage;
+			alerts[alert_counter].month = month;
+			alerts[alert_counter].status = "Unresolved";
+			alert_counter++;
+			numberOfUnresolvedAlerts++;
 
 	
 }
