@@ -17,10 +17,14 @@ void check_alert_generate(building buildings[], int& building_counter, EnergyRea
 		}
 	}
 
-}
-// define function to generate alert for over usage
-void generate_alert_for_over_usage(float consumption_value, float Monthly_Limit, string building_name, int building_id, string month, Alert alerts[], int& alert_counter, int& numberOfUnresolvedAlerts) {
-	float overusage = consumption_value - Monthly_Limit;
+
+// define function to generate alert for over usage ---> amal<
+void check_alert_generate(float consumtion_value, float monthly_limit, string building_name, int building_id,string month,Alert alerts[],int &alert_counter,int &numberOfUnresolvedAlerts) {
+
+	if (consumtion_value > monthly_limit) {
+		float overusage = consumtion_value - monthly_limit;
+		// generating alert
+
 		cout << "-----------ALERT !!-----------" << endl
 			 << "there is an over usage of energy in building named" << building_name << endl
 			 << "whose id is" << building_id << endl

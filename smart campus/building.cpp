@@ -53,6 +53,7 @@ void displayBuildingInfo(building buildings[], int building_counter) {
 	cin >> id;
 	cin.ignore();
 	string building_name;
+	cout << "Enter building name: ";
 	getline(cin, building_name);
 	for (int i = 0; i < building_counter; i++) {
 		if (buildings[i].ID == id && buildings[i].Name == building_name) {
