@@ -69,7 +69,7 @@ void displayBuildingInfo(building buildings[], int building_counter) {
 	bool found = false;
 	for (int i = 0; i < building_counter; i++) {
 		if (buildings[i].ID == id && buildings[i].Name == building_name) {
-			bool found = true;
+		    found = true;
 			cout << "Building ID: " << buildings[i].ID << endl;
 			cout << "Building Name: " << buildings[i].Name << endl;
 			cout << "Building Type: " << buildings[i].type << endl;
@@ -77,7 +77,7 @@ void displayBuildingInfo(building buildings[], int building_counter) {
 			cout << "Total Consumption: " << buildings[i].Total_consumption << " kWh" << endl;
 			cout << "Efficiency Score: " << buildings[i].Efficiency_Score << "%" << endl;
 			cout << "-----------------------------" << endl;
-			return;
+			break;
 		}
 	}
 	if(!found) {
