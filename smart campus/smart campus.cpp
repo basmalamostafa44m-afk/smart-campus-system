@@ -42,9 +42,10 @@ void menu() {
 	cout << "6.Generate monthly campus report" << endl;
 	cout << "7.Resolve alert" << endl;
 	cout << "8.log out" << endl;
+	do {
 		cin >> choice;
 		if (choice == 1) {
-			AddEnergyReading(buildings,building_counter, Readings, reading_counter, alerts, alert_counter, numberOfUnresolvedAlerts);
+			AddEnergyReading(buildings, building_counter, Readings, reading_counter, alerts, alert_counter, numberOfUnresolvedAlerts);
 		}
 		else if (choice == 2) {
 			displayBuildingInfo(buildings, building_counter);
@@ -73,4 +74,5 @@ void menu() {
 			cout << "Enter valid option: ";
 
 		}
+	} while (choice < 1 || choice > 8);
 }
