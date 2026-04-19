@@ -58,7 +58,17 @@ void resolveAlert(Alert alerts[],int alert_counter,int &numberOfResolvedAlerts,i
 	do {
 		if (numberOfUnresolvedAlerts == 0) {
 			cout << "There are no unresolved alerts to resolve!" << endl;
-			return;
+			cout << "_________________________________" << endl;
+			cout << "1. Back to menu" << endl;
+			cout << "2. Quit and save" << endl;
+			int c;
+			cout << "Enter your choice: ";
+			cin >> c;
+			if (c == 1)
+				menu();
+			else if (c == 2) {
+				return;
+			}
 		}
 		int alertID;
 		cout << " Please enter alert ID to resolve : ";

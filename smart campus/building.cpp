@@ -17,6 +17,17 @@ void calculateEfficiencyScore(building buildings[],int building_counter) {
 		}
 	}
 	cout << "Efficiency score updated successfully" << endl;
+	cout << "_________________________________" << endl;
+	cout << "1. Back to menu" << endl;
+	cout << "2. Quit and save" << endl;
+	int choice;
+	cout << "Enter your choice: ";
+	cin >> choice;
+	if (choice == 1)
+		menu();
+	else if (choice == 2) {
+		return;
+	}
 
 }
 

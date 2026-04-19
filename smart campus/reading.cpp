@@ -61,12 +61,7 @@ void AddEnergyReading(building buildings[], int& building_counter, EnergyReading
 			}
 
 			cout << "Energy reading added successfully!" << endl;
-			cout << "Do you want to update efficiency score? (y/n): ";
-			char update_choice;
-			cin >> update_choice;
-			if (update_choice == 'y' || update_choice == 'Y') {
-				calculateEfficiencyScore(buildings, building_counter);
-			}
+			cout << "_________________________________" << endl;
 		}
 		cout << "1. add another energy reading " << endl;
 		cout << "2. return to main menu " << endl;
