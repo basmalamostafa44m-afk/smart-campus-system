@@ -18,7 +18,6 @@ void Admin_login(Admin admins[], int& current_admin_numbers) {
 		cin.ignore(); // Ignore the newline character left in the input buffer
 		getline(cin, inputUser_name);
         cout << "Enter your password: ";
-		cin.ignore(); 
         getline(cin, inputPassword);
 		bool found = false;
         for (int i = 0; i < current_admin_numbers; i++) {
@@ -57,10 +56,9 @@ void admin_signup(Admin admins[], int& current_admin_numbers) {
     if (current_admin_numbers < 5) {
         string newuser, newpass;
         cout << "please enter username: "<< endl;
-		cin.ignore(); 
+		cin.ignore(); // Ignore the newline character left in the input buffer
 		getline(cin, newuser);
 		cout << "please enter password: " << endl;
-		cin.ignore();
 		getline(cin, newpass);
         for(int i = 0 ; i < current_admin_numbers; i++) {
             if (admins[i].user_name == newuser) {
