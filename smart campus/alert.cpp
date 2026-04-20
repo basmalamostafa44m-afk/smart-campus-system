@@ -74,18 +74,25 @@ void resolveAlert(Alert alerts[],int alert_counter,int &numberOfResolvedAlerts,i
 		cout << " Please enter alert ID to resolve : ";
 		cin >> alertID;
 		bool ID_found = false;
+		bool IsResolved = true;
 		for (int i = 0; i < alert_counter; i++) {
 			if (alerts[i].AlertID == alertID) {
-				alerts[i].status = "Resolved";
-				numberOfResolvedAlerts++;
-				numberOfUnresolvedAlerts--;
-				cout << "Alert resolved successfully!!";
 				ID_found = true;
-				break;
+				if (alerts[i].status == "Unresolved") {
+					alerts[i].status = "Resolved";
+					numberOfResolvedAlerts++;
+					numberOfUnresolvedAlerts--;
+					cout << "Alert resolved successfully!!" << endl;
+					IsResolved = false ;
+					break;
+				}
 			}
 		}
 		if (ID_found == false)
-			cout << "Alert ID is not found!";
+			cout << "Alert ID is not found!" << endl;
+		else if (ID_found == true && IsResolved == true)
+			cout << "Alert is already resolved!" << endl;
+
 		cout << "do you to try again? (y/n) : ";
 		char choice;
 		cin >> choice;
