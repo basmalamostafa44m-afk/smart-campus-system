@@ -52,9 +52,18 @@ void AddEnergyReading(building buildings[], int& building_counter, EnergyReading
 			// Update building's total consumption
 			for (int i = 0; i < building_counter; i++) {
 				if (buildings[i].ID == id && buildings[i].Name == name) {
-					if (consumption_value > buildings[i].Monthly_Limit) {
-						generate_alert_for_over_usage(consumption_value, buildings[i].Monthly_Limit, buildings[i].Name, buildings[i].ID, month, alerts, alert_counter, numberOfUnresolvedAlerts);
+					// Calculate total consumption for the month by summing all readings for the building and month
+					float total_consumption_per_month = 0.0;
+					for(int j = 0; j < reading_counter; j++) {
+						if (readings[j].BuildingID == id && readings[j].month == month) {
+							total_consumption_per_month += readings[j].consumption_value;
+						}
 					}
+					//check if the new total consumption exceeds the monthly limit and generate alert if necessary
+					if (total_consumption_per_month > buildings[i].Monthly_Limit) {
+						generate_alert_for_over_usage(total_consumption_per_month, buildings[i].Monthly_Limit, buildings[i].Name, buildings[i].ID, month, alerts, alert_counter, numberOfUnresolvedAlerts);
+					}
+					// Update the building's total consumption by summing all readings for the building
 					buildings[i].Total_consumption += consumption_value;
 					break;
 				}
@@ -65,6 +74,7 @@ void AddEnergyReading(building buildings[], int& building_counter, EnergyReading
 			char choice;
 			cin >> choice;
 			if (choice == 'y' || choice == 'Y') {
+				// Recalculate efficiency scores for all buildings after adding the new reading
 				calculateEfficiencyScore(buildings, building_counter);
 				return;
 			}

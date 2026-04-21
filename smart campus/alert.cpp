@@ -38,7 +38,7 @@ void generate_alert_for_over_usage(float consumtion_value, float monthly_limit, 
 
 			cout << "-----------ALERT !!-----------" << endl
 				<< "there is an over usage of energy in building named " << building_name << endl
-				<< "whose id is " << building_id << endl
+				<< "whose id is " << building_id << " in the month of " << month << endl
 				<< "the over usage amount = " << overusage << endl;
 
 			alerts[alert_counter].AlertID = alert_counter + 1;
