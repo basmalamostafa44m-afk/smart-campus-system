@@ -58,21 +58,15 @@ void admin_signup(Admin admins[], int& current_admin_numbers) {
         cout << "please enter username: "<< endl;
 		cin.ignore(); // Ignore the newline character left in the input buffer
 		getline(cin, newuser);
-		cout << "please enter password: " << endl;
+        cout << "please enter password: " << endl;
 		getline(cin, newpass);
-        for(int i = 0 ; i < current_admin_numbers; i++) {
+         for(int i = 0 ; i < current_admin_numbers; i++) {
             if (admins[i].user_name == newuser) {
-                cout << "Username already exists! Please choose a different username." << endl;
-				cout << " Try again " << endl;
-				admin_signup(admins, current_admin_numbers);
-				return;
-            }
-            if (admins[i].password == newpass) {
-                cout << "Password already exists! Please choose a different password." << endl;
-				cout << " Try again " << endl;
+                cout << "Username already exist! Please try again." << endl;
                 admin_signup(admins, current_admin_numbers);
-				return;
-			}
+                return;
+            }
+           
 		}
         admins[current_admin_numbers].Admin_ID = current_admin_numbers + 1;
         admins[current_admin_numbers].user_name = newuser;

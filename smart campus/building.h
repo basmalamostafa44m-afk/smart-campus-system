@@ -16,7 +16,7 @@ struct building
 void calculateEfficiencyScore(building buildings[], int building_counter);
 
 // declare function to add new building --> basmala
-void AddBuilding(building &buildings,int &building_counter);
+void AddBuilding(building buildings[], int& building_counter);
 
 // declare function to display building information --> basmala
 void displayBuildingInfo(building buildings[], int building_counter);

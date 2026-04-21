@@ -32,7 +32,7 @@ void calculateEfficiencyScore(building buildings[],int building_counter) {
 }
 
 //define function to add new building ---> basmala
-void AddBuilding(building &buildings,int &building_counter)
+void AddBuilding(building buildings[], int& building_counter)
 {
 	int id;
 	string name;
@@ -40,19 +40,34 @@ void AddBuilding(building &buildings,int &building_counter)
 	float monthly_limit;
 	cout << "Enter building ID: ";
 	cin >> id;
+	for (int i = 0; i < building_counter; i++) {
+		if (id == buildings[i].ID) {
+			cout << "A building with this ID already exists!" << endl;
+			AddBuilding(buildings, building_counter);
+			return;
+		}
+	}
 	cout << "Enter building name: ";
 	cin.ignore(); // Ignore the newline character left in the input buffer 
 	getline(cin, name);
+    for (int i = 0; i < building_counter; i++) {
+		if (name == buildings[i].Name ) {
+			cout << "A building with this name already exists!" << endl;
+			AddBuilding(buildings, building_counter);
+			return;
+		}
+	}
 	cout << "Enter building type: ";
 	getline(cin, type);
 	cout << "Enter monthly limit: ";
 	cin >> monthly_limit;
-	buildings.ID = id;
-	buildings.Name = name;
-	buildings.type = type;
-	buildings.Monthly_Limit = monthly_limit;
-	buildings.Total_consumption = 0.0; // Initialize total consumption to 0
-	buildings.Efficiency_Score = 100.0; // Initialize efficiency score to 100
+	
+	buildings[building_counter].ID = id;
+	buildings[building_counter].Name = name;
+	buildings[building_counter].type = type;
+	buildings[building_counter].Monthly_Limit = monthly_limit;
+	buildings[building_counter].Total_consumption = 0.0; // Initialize total consumption to 0
+	buildings[building_counter].Efficiency_Score = 100.0; // Initialize efficiency score to 100
 	building_counter++; // Increment the building counter
 	cout << "Building added successfully!" << endl;
 	
