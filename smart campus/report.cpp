@@ -10,25 +10,32 @@ using namespace std;
 // define any functions related to generating reports in this file ---> Eman
 
 //define function to generate monthly campus report
-void generateMonthlyCampusReport(building buildings[],int building_counter, int numberOfUnresolvedAlerts, int numberOfResolvedAlerts) {
+void generateMonthlyCampusReport(building buildings[], int building_counter, int numberOfUnresolvedAlerts, int numberOfResolvedAlerts) {
 
-	cout << " ______MONTHLY CAMPUS REPORT______ " << endl;
+    cout << " ______MONTHLY CAMPUS REPORT______ " << endl;
     calculateTotalCampusConsumption(buildings, building_counter);
     findMostEfficientBuilding(buildings, building_counter);
     findLeastEfficientBuilding(buildings, building_counter);
-	cout << "Number of unresolved alerts: " << numberOfUnresolvedAlerts << endl;
-	cout << "Number of resolved alerts: " << numberOfResolvedAlerts << endl;
-	cout << "-----------------------------" << endl;
-    cout << "1. Back to menu" << endl;
-    cout << "2. Quit and save" << endl;
-    int c;
-    cout << "Enter your choice: ";
-    cin >> c;
-    if (c == 1)
-        menu();
-    else if (c == 2) {
-        return;
-    }
+    cout << "Number of unresolved alerts: " << numberOfUnresolvedAlerts << endl;
+    cout << "Number of resolved alerts: " << numberOfResolvedAlerts << endl;
+    cout << "-----------------------------" << endl;
+
+        cout << "1. Back to menu" << endl;
+        cout << "2. Quit and save" << endl;
+    int choice;
+    do {
+        cout << "Enter your choice: ";
+        cin >> choice;
+        if (choice == 1)
+            menu();
+        else if (choice == 2) {
+            return;
+        }
+        else
+            cout << "Invalid choice! Please try again." << endl;
+
+    } while (choice != 1 && choice != 2 );
+
 
 }
 

@@ -17,17 +17,24 @@ void check_alert_generate(building buildings[], int& building_counter, EnergyRea
 		}
 	}
 	cout << "Alerts generated successfully!!" << endl;
-	cout << "_________________________________" << endl;
-	cout << "1. Back to menu" << endl;
-	cout << "2. Quit and save" << endl;
-	int choice;
-	cout << "Enter your choice: ";
-	cin >> choice;
-	if (choice == 1)
-		menu();
-	else if (choice == 2) {
-		return;
-	}
+        cout << "_________________________________" << endl;
+		cout << "1. Back to menu" << endl;
+		cout << "2. Quit and save" << endl;
+		int choice;
+
+	do {
+		
+		cout << "Enter your choice: ";
+		cin >> choice;
+		if (choice == 1) {
+			menu();
+		}
+		else if (choice == 2) {
+			return;
+		}
+		else
+			cout << " Invalid choice! Please try again. " << endl;
+	} while (choice != 1 && choice != 2);
 }
 
 
@@ -62,13 +69,20 @@ void resolveAlert(Alert alerts[],int alert_counter,int &numberOfResolvedAlerts,i
 			cout << "1. Back to menu" << endl;
 			cout << "2. Quit and save" << endl;
 			int c;
-			cout << "Enter your choice: ";
-			cin >> c;
-			if (c == 1)
-				menu();
-			else if (c == 2) {
-				return;
-			}
+
+			do {
+				
+				cout << "Enter your choice: ";
+				cin >> c;
+				if (c == 1) {
+					menu();
+				}
+				else if (c == 2) {
+					return;
+				}
+				else
+					cout << "Invalid choice! Please try again." << endl;	
+			} while (c != 1 && c != 2);
 		}
 		int alertID;
 		cout << " Please enter alert ID to resolve : ";
@@ -99,17 +113,25 @@ void resolveAlert(Alert alerts[],int alert_counter,int &numberOfResolvedAlerts,i
 		if (choice == 'n' || choice == 'N')
 			break;
 	} while (true);
-	cout << "_________________________________" << endl;
-	cout << "1. Back to menu" << endl;
-	cout << "2. Quit and save" << endl;
-	int c;
-	cout << "Enter your choice: ";
-	cin >> c;
-	if (c == 1)
-		menu();
-	else if (c == 2) {
-		return;
-	}
+
+        cout << "_________________________________" << endl;
+		cout << "1. Back to menu" << endl;
+		cout << "2. Quit and save" << endl;
+    int ch;
+	do {
+		
+		cout << "Enter your choice: ";
+		cin >> ch;
+		if (ch == 1) {
+			menu();
+		}
+		else if (ch	 == 2) {
+			return;
+		}
+		else
+			cout << "Invalid choice! Please try again." << endl;
+	} while (ch != 1 && ch != 2);
+	
 }
 
 // define function to show all unresolved alerts ---> aya
@@ -131,15 +153,22 @@ void resolveAlert(Alert alerts[],int alert_counter,int &numberOfResolvedAlerts,i
 		}
 		if (!found)
 			cout << "No unresolved alerts found." << endl;
-		cout << "_________________________________" << endl;
-		cout << "1. Back to menu" << endl;
-		cout << "2. Quit and save" << endl;
-		int c;
-		cout << "Enter your choice: ";
-		cin >> c;
-		if (c == 1)
-			menu();
-		else if (c == 2) {
-			return;
-		}
+
+            cout << "_________________________________" << endl;
+			cout << "1. Back to menu" << endl;
+			cout << "2. Quit and save" << endl;
+			int choice;
+		do {
+			
+			cout << "Enter your choice: ";
+			cin >> choice;
+			if (choice == 1) {
+				menu();
+			}
+			else if (choice == 2) {
+				return;
+			}
+			else
+				cout << "Invalid choice! Please try again." << endl;;
+		} while (choice != 1 && choice != 2);
 	}

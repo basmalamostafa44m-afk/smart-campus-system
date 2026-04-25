@@ -18,58 +18,73 @@ void calculateEfficiencyScore(building buildings[],int building_counter) {
 	}
 	cout << "Efficiency score updated successfully" << endl;
 	cout << "_________________________________" << endl;
-	cout << "1. Back to menu" << endl;
+    cout << "1. Back to menu" << endl;
 	cout << "2. Quit and save" << endl;
 	int choice;
-	cout << "Enter your choice: ";
-	cin >> choice;
-	if (choice == 1)
-		menu();
-	else if (choice == 2) {
-		return;
-	}
+
+	do {
+		
+		cout << "Enter your choice: ";
+		cin >> choice;
+		if (choice == 1)
+			menu();
+		else if (choice == 2) {
+			return;
+		}
+		else
+			cout << "Invalid choice! Please try again." << endl;
+
+	} while (choice != 1 && choice != 2);
+	
 
 }
 
 //define function to add new building ---> basmala
 void AddBuilding(building buildings[], int& building_counter)
 {
-	int id;
-	string name;
-	string type;
-	float monthly_limit;
-	cout << "Enter building ID: ";
-	cin >> id;
-	for (int i = 0; i < building_counter; i++) {
-		if (id == buildings[i].ID) {
-			cout << "A building with this ID already exists!" << endl;
-			AddBuilding(buildings, building_counter);
-			return;
+
+	if (building_counter < 10) {
+		int id;
+		string name;
+		string type;
+		float monthly_limit;
+		cout << "Enter building ID: ";
+		cin >> id;
+		for (int i = 0; i < building_counter; i++) {
+			if (id == buildings[i].ID) {
+				cout << "A building with this ID already exists!" << endl;
+				AddBuilding(buildings, building_counter);
+				return;
+			}
 		}
-	}
-	cout << "Enter building name: ";
-	cin.ignore(); // Ignore the newline character left in the input buffer 
-	getline(cin, name);
-    for (int i = 0; i < building_counter; i++) {
-		if (name == buildings[i].Name ) {
-			cout << "A building with this name already exists!" << endl;
-			AddBuilding(buildings, building_counter);
-			return;
+		cout << "Enter building name: ";
+		cin.ignore(); // Ignore the newline character left in the input buffer 
+		getline(cin, name);
+		for (int i = 0; i < building_counter; i++) {
+			if (name == buildings[i].Name) {
+				cout << "A building with this name already exists!" << endl;
+				AddBuilding(buildings, building_counter);
+				return;
+			}
 		}
+		cout << "Enter building type: ";
+		getline(cin, type);
+		cout << "Enter monthly limit: ";
+		cin >> monthly_limit;
+
+		buildings[building_counter].ID = id;
+		buildings[building_counter].Name = name;
+		buildings[building_counter].type = type;
+		buildings[building_counter].Monthly_Limit = monthly_limit;
+		buildings[building_counter].Total_consumption = 0.0; // Initialize total consumption to 0
+		buildings[building_counter].Efficiency_Score = 100.0; // Initialize efficiency score to 100
+		building_counter++; // Increment the building counter
+		cout << "Building added successfully!" << endl;
 	}
-	cout << "Enter building type: ";
-	getline(cin, type);
-	cout << "Enter monthly limit: ";
-	cin >> monthly_limit;
-	
-	buildings[building_counter].ID = id;
-	buildings[building_counter].Name = name;
-	buildings[building_counter].type = type;
-	buildings[building_counter].Monthly_Limit = monthly_limit;
-	buildings[building_counter].Total_consumption = 0.0; // Initialize total consumption to 0
-	buildings[building_counter].Efficiency_Score = 100.0; // Initialize efficiency score to 100
-	building_counter++; // Increment the building counter
-	cout << "Building added successfully!" << endl;
+	else {
+		cout << "Building limit reached! Cannot add more buildings." << endl;	
+	}
+
 	
 }
 // define function to display building information ---> basmala
@@ -95,18 +110,26 @@ void displayBuildingInfo(building buildings[], int building_counter) {
 			break;
 		}
 	}
+
 	if(!found) {
 		cout << "Building not found!" << endl;
 	}
-	cout << "1. Back to menu" << endl;
-	cout << "2. Quit and save" << endl;
-	int c;
-	cout << "Enter your choice: ";
-	cin >> c;
-	if (c == 1)
-		menu();
-	else if (c == 2) {
-		return;
-	}
+        cout << "1. Back to menu" << endl;
+		cout << "2. Quit and save" << endl;
+		int choice;
+
+	do {
+		
+		cout << "Enter your choice: ";
+		cin >> choice;
+		if (choice == 1)
+			menu();
+		else if (choice == 2) {
+			return;
+		}
+		else
+			cout << "Invalid choice! Please try again." << endl;
+	} while (choice != 1 && choice != 2);
+	
 
 }

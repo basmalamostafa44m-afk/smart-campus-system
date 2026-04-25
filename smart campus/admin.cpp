@@ -30,23 +30,30 @@ void Admin_login(Admin admins[], int& current_admin_numbers) {
         }
         if (!found) {
 			cout << "Invalid username or password!" << endl;
-			cout << "1. Try again" << endl;
-			cout << "2.Quit" << endl;
-			int choice;
-			cout << "Enter your choice: ";
-			cin >> choice;
-            if(choice == 1)
-			Admin_login(admins, current_admin_numbers);
-            else if (choice == 2) {
-				return;
-            }
+
+			cout << "________________________________" << endl; 
+                cout << "1. Try again " << endl;
+                cout << "2. Quit and save" << endl;
+            int choice;
+            do {
+               
+                cout << "Enter your choice: ";
+                cin >> choice;
+                if (choice == 1)
+                    Admin_login(admins, current_admin_numbers);
+                else if (choice == 2) {
+                    return;
+                }
+                else
+				   cout << "Invalid choice! Please try again." << endl;
+            } while (choice != 1 && choice != 2);
+           
         }
        
     }
 
     else if (answer == "no" || answer == "n" || answer == "N" || answer == "NO") {
         admin_signup(admins, current_admin_numbers);
-      
     }
 }
 
