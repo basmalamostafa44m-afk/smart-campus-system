@@ -62,7 +62,11 @@ void AddEnergyReading(building buildings[], int& building_counter, EnergyReading
 						}
 						//check if the new total consumption exceeds the monthly limit and generate alert if necessary
 						if (total_consumption_per_month > buildings[i].Monthly_Limit) {
+							if (alert_counter < 20)	
 							generate_alert_for_over_usage(total_consumption_per_month, buildings[i].Monthly_Limit, buildings[i].Name, buildings[i].ID, month, alerts, alert_counter, numberOfUnresolvedAlerts);
+
+							else
+								cout << "Error : Alert cannot be added ! alert database is full." << endl;
 						}
 						// Update the building's total consumption by summing all readings for the building
 						buildings[i].Total_consumption += consumption_value;

@@ -11,7 +11,10 @@ void check_alert_generate(building buildings[], int& building_counter, EnergyRea
 		for (int j = 0; j < building_counter; j++) {
 			if (readings[i].BuildingID == buildings[j].ID) {
 				if (readings[i].consumption_value > buildings[j].Monthly_Limit) {
+					if (alert_counter < 20)
 					generate_alert_for_over_usage(readings[i].consumption_value, buildings[j].Monthly_Limit, buildings[j].Name, buildings[j].ID, readings[i].month, alerts, alert_counter, numberOfUnresolvedAlerts);
+					else
+						cout << "Error : Alert cannot be added ! alert database is full." << endl;
 				}
 			}
 		}
@@ -40,21 +43,25 @@ void check_alert_generate(building buildings[], int& building_counter, EnergyRea
 
 // define function to generate alert for over usage ---> amal
 void generate_alert_for_over_usage(float consumtion_value, float monthly_limit, string building_name, int building_id,string month,Alert alerts[],int &alert_counter,int &numberOfUnresolvedAlerts) {
+	        
+	if (alert_counter < 20) {
+		float overusage = consumtion_value - monthly_limit;
 
-			float overusage = consumtion_value - monthly_limit;
+		cout << "-----------ALERT !!-----------" << endl
+			<< "there is an over usage of energy in building named " << building_name << endl
+			<< "whose id is " << building_id << " in the month of " << month << endl
+			<< "the over usage amount = " << overusage << endl;
 
-			cout << "-----------ALERT !!-----------" << endl
-				<< "there is an over usage of energy in building named " << building_name << endl
-				<< "whose id is " << building_id << " in the month of " << month << endl
-				<< "the over usage amount = " << overusage << endl;
-
-			alerts[alert_counter].AlertID = alert_counter + 1;
-			alerts[alert_counter].BuildingID = building_id;
-			alerts[alert_counter].over_usage_amount = overusage;
-			alerts[alert_counter].month = month;
-			alerts[alert_counter].status = "Unresolved";
-			alert_counter++;
-			numberOfUnresolvedAlerts++;
+		alerts[alert_counter].AlertID = alert_counter + 1;
+		alerts[alert_counter].BuildingID = building_id;
+		alerts[alert_counter].over_usage_amount = overusage;
+		alerts[alert_counter].month = month;
+		alerts[alert_counter].status = "Unresolved";
+		alert_counter++;
+		numberOfUnresolvedAlerts++;
+	}
+	else
+		cout << " Error !!! "
 
 	
 }
