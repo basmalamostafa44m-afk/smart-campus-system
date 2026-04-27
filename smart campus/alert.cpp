@@ -19,7 +19,6 @@ void check_alert_generate(building buildings[], int& building_counter, EnergyRea
 			}
 		}
 	}
-	cout << "Alerts generated successfully!!" << endl;
         cout << "_________________________________" << endl;
 		cout << "1. Back to menu" << endl;
 		cout << "2. Quit and save" << endl;
@@ -42,28 +41,41 @@ void check_alert_generate(building buildings[], int& building_counter, EnergyRea
 
 
 // define function to generate alert for over usage ---> amal
-void generate_alert_for_over_usage(float consumtion_value, float monthly_limit, string building_name, int building_id,string month,Alert alerts[],int &alert_counter,int &numberOfUnresolvedAlerts) {
-	        
+void generate_alert_for_over_usage(float consumtion_value, float monthly_limit, string building_name, int building_id, string month, Alert alerts[], int& alert_counter, int& numberOfUnresolvedAlerts) {
+
 	if (alert_counter < 20) {
+		bool notfound = true;
+		for (int i = 0; i < alert_counter; i++) {
+			if (alerts[i].month == month && alerts[i].BuildingID == building_id) {
+				notfound = false;
+				break;
+			}
+		}
 		float overusage = consumtion_value - monthly_limit;
+		if (notfound) {
+			cout << "-----------ALERT !!-----------" << endl
+				<< "there is an over usage of energy in building named " << building_name << endl
+				<< "whose id is " << building_id << " in the month of " << month << endl
+				<< "the over usage amount = " << overusage << endl;
 
-		cout << "-----------ALERT !!-----------" << endl
-			<< "there is an over usage of energy in building named " << building_name << endl
-			<< "whose id is " << building_id << " in the month of " << month << endl
-			<< "the over usage amount = " << overusage << endl;
+			alerts[alert_counter].AlertID = alert_counter + 1;
+			alerts[alert_counter].BuildingID = building_id;
+			alerts[alert_counter].over_usage_amount = overusage;
+			alerts[alert_counter].month = month;
+			alerts[alert_counter].status = "Unresolved";
+			alert_counter++;
+			numberOfUnresolvedAlerts++;
+		}
+		else {
+			cout << "All alerts are already generated no more alerts to generate" << endl;
+		}
 
-		alerts[alert_counter].AlertID = alert_counter + 1;
-		alerts[alert_counter].BuildingID = building_id;
-		alerts[alert_counter].over_usage_amount = overusage;
-		alerts[alert_counter].month = month;
-		alerts[alert_counter].status = "Unresolved";
-		alert_counter++;
-		numberOfUnresolvedAlerts++;
 	}
-	else
-		cout << " Error !!! "
+	else {
+		cout << "cannot generate alerts! alert data base is full." << endl;
+	}
 
-	
+
 }
 
 

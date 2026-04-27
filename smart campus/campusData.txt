@@ -1,12 +1,19 @@
-2 3 0 0 0 0
+2 5 2 1 2 0
 101
 Hall One cs
 Academic
-500.5 0.0 100.0
+500.5 600 100
 102
 Physics Lab
 Lab
-800 0.0 100.0
+800 0 100
 1 101 January 450.5
-2 101 February 550.0
-3 102 January 700.0
+2 101 February 550
+3 102 January 700
+4 101 may 500
+5 101 may 100
+1 101 may 99.5 Unresolved
+2 101 February 49.5 Unresolved
+1
+kk
+kk
