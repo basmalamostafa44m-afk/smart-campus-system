@@ -1,12 +1,12 @@
 2 3 0 0 0 0
 101
-Hall One cs
-Academic
-500.5 0.0 100.0
+Central Library
+Public Service
+500.5 0 100
 102
-Physics Lab
-Lab
-800 0.0 100.0
+Zaafaran Palace
+Administration
+900 0 100
 1 101 January 450.5
-2 101 February 550.0
-3 102 January 700.0
+2 101 February 550
+3 102 January 700
