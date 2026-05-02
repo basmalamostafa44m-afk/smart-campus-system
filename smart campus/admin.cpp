@@ -33,6 +33,7 @@ void Admin_login(Admin admins[], int& current_admin_numbers) {
 
             cout << "Enter your choice: ";
             cin >> choice;
+            cin.ignore();
             if (choice == 1)
                 Admin_login(admins, current_admin_numbers);
             else if (choice == 2) {

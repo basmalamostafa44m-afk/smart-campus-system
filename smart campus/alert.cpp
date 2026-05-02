@@ -19,6 +19,7 @@ void check_alert_generate(building buildings[], int& building_counter, EnergyRea
 			}
 		}
 	}
+     	cout << "All alerts are already generated no more alerts to generate" << endl;
         cout << "_________________________________" << endl;
 		cout << "1. Back to menu" << endl;
 		cout << "2. Quit and save" << endl;
@@ -65,9 +66,6 @@ void generate_alert_for_over_usage(float consumtion_value, float monthly_limit, 
 			alerts[alert_counter].status = "Unresolved";
 			alert_counter++;
 			numberOfUnresolvedAlerts++;
-		}
-		else {
-			cout << "All alerts are already generated no more alerts to generate" << endl;
 		}
 
 	}

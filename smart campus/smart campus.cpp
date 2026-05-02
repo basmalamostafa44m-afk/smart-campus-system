@@ -55,7 +55,8 @@ void menu() {
 	cout << "5.Calculate efficiency score" << endl;
 	cout << "6.Generate monthly campus report" << endl;
 	cout << "7.Resolve alert" << endl;
-	cout << "8.log out" << endl;
+	cout << "8.Add new building" << endl;
+	cout << "9.log out" << endl;
 	do {
 		cin >> choice;
 		if (choice == 1) {
@@ -80,6 +81,9 @@ void menu() {
 			resolveAlert(alerts, alert_counter, numberOfResolvedAlerts, numberOfUnresolvedAlerts);
 		}
 		else if (choice == 8) {
+			AddBuilding(buildings, building_counter);
+		}
+		else if (choice == 9) {
 			cout << "Logging out..." << endl;
 			start();
 		}
@@ -88,5 +92,5 @@ void menu() {
 			cout << "Enter valid option: ";
 
 		}
-	} while (choice < 1 || choice > 8);
+	} while (choice < 1 || choice > 9);
 }

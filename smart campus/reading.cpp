@@ -28,12 +28,6 @@ void AddEnergyReading(building buildings[], int& building_counter, EnergyReading
 
 		if (!building_found) {
 			cout << "Building not found!" << endl;
-			cout << "Do you want to add this building? (y/n): ";
-			char choice;
-			cin >> choice;
-			if (choice == 'y' || choice == 'Y') {
-				AddBuilding(buildings, building_counter);
-			}
 		}
 		else {
 			cout << "Enter month: ";

@@ -84,6 +84,23 @@ void AddBuilding(building buildings[], int& building_counter)
 	else {
 		cout << "Building limit reached! Cannot add more buildings." << endl;	
 	}
+	cout << "_________________________________" << endl;
+	cout << "1. Back to menu" << endl;
+	cout << "2. Quit and save" << endl;
+	int ch;
+	do {
+
+		cout << "Enter your choice: ";
+		cin >> ch;
+		if (ch == 1) {
+			menu();
+		}
+		else if (ch == 2) {
+			return;
+		}
+		else
+			cout << "Invalid choice! Please try again." << endl;
+	} while (ch != 1 && ch != 2);
 
 	
 }
