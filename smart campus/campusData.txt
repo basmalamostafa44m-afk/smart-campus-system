@@ -1,4 +1,4 @@
-2 5 2 1 2 0
+2 5 2 3 2 0
 101
 Hall One cs
 Academic
@@ -17,3 +17,9 @@ Lab
 1
 kk
 kk
+2
+bm
+bm
+3
+m
+mm

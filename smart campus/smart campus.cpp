@@ -1,4 +1,4 @@
-#include<iostream>
+﻿#include<iostream>
 #include<fstream>
 #include<string>
 #include "building.h"
@@ -22,14 +22,28 @@ int alert_counter = 0; // to keep track of the number of alerts added
 int admin_counter = 0; // to keep track of the number of admins added
 int numberOfUnresolvedAlerts = 0;
 int numberOfResolvedAlerts = 0;
-void menu();
+void menu();// define menu function
+void start();// define the function that gonna be our start point
 
 int main() {
 	loadFiles(buildings, building_counter, Readings, reading_counter, alerts, alert_counter, admins ,admin_counter, numberOfUnresolvedAlerts, numberOfResolvedAlerts);
-  cout << "Welcome to smart campus energy consumption monitor!!" << endl;
-	Admin_login(admins, admin_counter);
+	start();
 	saveData(buildings, building_counter, Readings, reading_counter, alerts, alert_counter, admins, admin_counter, numberOfUnresolvedAlerts, numberOfResolvedAlerts);
 
+}
+void start() {
+	cout << "                   <-------- Welcome to smart campus energy consumption monitor -------->         " << endl;
+	cout << "Do you have an account?(y/n)";
+	string answer;
+	cin >> answer;
+	cin.ignore();// Ignore the newline character left in the input buffer
+	if (answer == "y" || answer == "Y") {
+		Admin_login(admins, admin_counter);
+	}
+	else {
+		cout << "ok let's create one for you" << endl;
+		admin_signup(admins, admin_counter);
+	}
 }
 void menu() {
 	int choice;
@@ -67,7 +81,7 @@ void menu() {
 		}
 		else if (choice == 8) {
 			cout << "Logging out..." << endl;
-			Admin_login(admins, admin_counter);
+			start();
 		}
 		else {
 			cout << "Invalid option" << endl;
