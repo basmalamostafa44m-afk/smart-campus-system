@@ -1,25 +1,13 @@
-2 5 2 3 2 0
+2 3 0 0 0 0
 101
-Hall One cs
-Academic
-500.5 600 100
+Zaafaran Palace
+Administration
+500 0 100
 102
-Physics Lab
-Lab
+Central Library
+Educational
 800 0 100
 1 101 January 450.5
 2 101 February 550
 3 102 January 700
-4 101 may 500
-5 101 may 100
-1 101 may 99.5 Unresolved
-2 101 February 49.5 Unresolved
-1
-kk
-kk
-2
-bm
-bm
-3
-m
-mm
+

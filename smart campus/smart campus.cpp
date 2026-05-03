@@ -28,6 +28,7 @@ void start();// define the function that gonna be our start point
 int main() {
 	loadFiles(buildings, building_counter, Readings, reading_counter, alerts, alert_counter, admins ,admin_counter, numberOfUnresolvedAlerts, numberOfResolvedAlerts);
 	start();
+	cout << "                  ___ Thank you for using smart campus energy consumption monitor, goodbye!___     " << endl;
 	saveData(buildings, building_counter, Readings, reading_counter, alerts, alert_counter, admins, admin_counter, numberOfUnresolvedAlerts, numberOfResolvedAlerts);
 
 }
@@ -57,6 +58,7 @@ void menu() {
 	cout << "7.Resolve alert" << endl;
 	cout << "8.Add new building" << endl;
 	cout << "9.log out" << endl;
+	cout << "Enter your choice: ";
 	do {
 		cin >> choice;
 		if (choice == 1) {
