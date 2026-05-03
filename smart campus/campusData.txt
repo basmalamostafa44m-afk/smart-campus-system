@@ -2,12 +2,12 @@
 101
 Zaafaran Palace
 Administration
-500 0 100
+500 350 30
 102
 Central Library
 Educational
-800 0 100
-1 101 January 450.5
-2 101 February 550
-3 102 January 700
+800 600 25
+1 101 January 200
+2 101 February 150
+3 102 January 600
 
