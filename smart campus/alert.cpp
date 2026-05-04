@@ -7,24 +7,25 @@
 using namespace std;
 // define function to check limit  ---> amal
 void check_alert_generate(building buildings[], int& building_counter, EnergyReading readings[], int reading_counter, Alert alerts[], int& alert_counter, int& numberOfUnresolvedAlerts) {
-	bool alert_generated = false;
-	for (int i = 0; i < reading_counter; i++) {
-		for (int j = 0; j < building_counter; j++) {
-			if (readings[i].BuildingID == buildings[j].ID) {
-				if (readings[i].consumption_value > buildings[j].Monthly_Limit) {
-					if (alert_counter < 20) {
-						if (generate_alert_for_over_usage(readings[i].consumption_value, buildings[j].Monthly_Limit, buildings[j].Name, buildings[j].ID, readings[i].month, alerts, alert_counter, numberOfUnresolvedAlerts)) {
-							alert_generated = true;	
-						}
+	
+	if (alert_counter < 20) {
+        bool alert_generated = false;
+		for (int i = 0; i < reading_counter; i++) {
+			for (int j = 0; j < building_counter; j++) {
+				if (readings[i].BuildingID == buildings[j].ID) {
+					if (readings[i].consumption_value > buildings[j].Monthly_Limit) {
+						generate_alert_for_over_usage(readings[i].consumption_value, buildings[j].Monthly_Limit, buildings[j].Name, buildings[j].ID, readings[i].month, alerts, alert_counter, numberOfUnresolvedAlerts);
+						alert_generated = true;
 					}
-					else
-						cout << "Error : Alert cannot be added ! alert database is full." << endl;
 				}
 			}
 		}
+
+		if (!alert_generated)
+			cout << "All alerts are already generated no more alerts to generate" << endl;
 	}
-	if (!alert_generated)
-     	cout << "All alerts are already generated no more alerts to generate" << endl;
+	else
+		cout << "cannot generate alerts! alert data base is full." << endl;
         cout << "_________________________________" << endl;
 		cout << "1. Back to menu" << endl;
 		cout << "2. Quit and save" << endl;
@@ -47,21 +48,20 @@ void check_alert_generate(building buildings[], int& building_counter, EnergyRea
 
 
 // define function to generate alert for over usage ---> amal
-bool generate_alert_for_over_usage(float consumtion_value, float monthly_limit, string building_name, int building_id, string month, Alert alerts[], int& alert_counter, int& numberOfUnresolvedAlerts) {
-bool alert_exists = false;
-	if (alert_counter < 20) {
-		
+void generate_alert_for_over_usage(float consumtion_value, float monthly_limit, string building_name, int building_id, string month, Alert alerts[], int& alert_counter, int& numberOfUnresolvedAlerts) {
+
+		float overusage = consumtion_value - monthly_limit;
 		bool notfound = true;
 		for (int i = 0; i < alert_counter; i++) {
-			if (alerts[i].month == month && alerts[i].BuildingID == building_id) {
+			if (alerts[i].month == month && alerts[i].BuildingID == building_id && overusage == alerts[i].over_usage_amount  ) {
+				cout << "This alert with ID " << alerts[i].AlertID << " has already been generated in building named " << building_name
+					<< " whose building id is "<< building_id <<" in the month of " << month << " with the same over usage amount = " << overusage << endl;
 				notfound = false;
-				break;
 			}
 		}
-		float overusage = consumtion_value - monthly_limit;
+		
 		if (notfound) {
-			alert_exists = true;
-			cout << "-----------ALERT !!-----------" << endl
+			cout << "-----------NEW ALERT !!-----------" << endl
 				<< "there is an over usage of energy in building named " << building_name << endl
 				<< "whose id is " << building_id << " in the month of " << month << endl
 				<< "the over usage amount = " << overusage << endl;
@@ -74,12 +74,6 @@ bool alert_exists = false;
 			alert_counter++;
 			numberOfUnresolvedAlerts++;
 		}
-
-	}
-	else {
-		cout << "cannot generate alerts! alert data base is full." << endl;
-	}
-	return alert_exists;
 
 }
 
