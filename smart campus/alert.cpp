@@ -6,7 +6,7 @@
 #include "admin.h"
 using namespace std;
 // define function to check limit  ---> amal
-void check_alert_generate(building buildings[], int& building_counter, EnergyReading readings[], int reading_counter, Alert alerts[], int& alert_counter, int& numberOfUnresolvedAlerts) {
+void check_alert_generate(building buildings[], int building_counter, EnergyReading readings[], int reading_counter, Alert alerts[], int& alert_counter, int& numberOfUnresolvedAlerts) {
 	
 	if (alert_counter < 20) {
         bool alert_generated = false;

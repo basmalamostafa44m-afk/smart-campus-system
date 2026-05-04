@@ -33,6 +33,13 @@ void AddEnergyReading(building buildings[], int& building_counter, EnergyReading
 			cout << "Enter month: ";
 			string month;
 			cin >> month;
+			for(int i = 0; i < reading_counter; i++) {
+				if (readings[i].BuildingID == id && readings[i].month == month) {
+					cout << "This building already has a reading for this month!  "<< endl;
+					AddEnergyReading(buildings, building_counter, readings, reading_counter, alerts, alert_counter, numberOfUnresolvedAlerts);
+					return;
+				}
+			}
 			cout << "Enter consumption value: ";
 			float consumption_value;
 			cin >> consumption_value;
