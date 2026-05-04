@@ -22,7 +22,7 @@ void check_alert_generate(building buildings[], int& building_counter, EnergyRea
 		}
 
 		if (!alert_generated)
-			cout << "All alerts are already generated no more alerts to generate" << endl;
+			cout << " No alerts to generate" << endl;
 	}
 	else
 		cout << "cannot generate alerts! alert data base is full." << endl;
