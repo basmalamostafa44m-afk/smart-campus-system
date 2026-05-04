@@ -31,7 +31,12 @@ void generateMonthlyCampusReport(building buildings[], int building_counter , En
             for (int j = 0; j < building_counter; j++) {
                 if (buildings[j].ID == reading[i].BuildingID) { 
                     currentBuildingName = buildings[j].Name;
-                    curr_efficiency_score = calcEfficiencyFormonth( buildings,  building_counter, reading[j].consumption_value,currentBuildingName);
+                    int curr_eff = 0;
+                    for (int i = 0; i < building_counter; i++) {
+                        if (buildings[i].Name == currentBuildingName) {
+                            curr_eff = (buildings[i].Monthly_Limit - reading[j].consumption_value) * 100 / buildings[i].Monthly_Limit;
+                        }
+                    }
                     break;
                 }
             }
@@ -54,6 +59,7 @@ void generateMonthlyCampusReport(building buildings[], int building_counter , En
                 }
             }
         }
+
     }
 
     int unresolved = 0, resolved = 0;
@@ -63,15 +69,18 @@ void generateMonthlyCampusReport(building buildings[], int building_counter , En
             else unresolved++;
         }
     }
-
-
-    cout << "___________________________________" << endl;
-    cout << " ______MONTHLY CAMPUS REPORT______ " << endl;
-    cout << "The total campus consumption : " << total_consumption << "KWh" << endl;
-    cout << "The most efficient building is " << most_efficient_building << endl;
-    cout << "The least efficient building is " << least_efficient_building << endl;
-    cout << "Number of unresolved alerts: " << unresolved << endl;
-    cout << "Number of resolved alerts: " << resolved << endl;
+    if (first_record) {
+        cout << "No data found for this month." << endl;
+    }
+    else {
+        cout << "___________________________________" << endl;
+        cout << " ______MONTHLY CAMPUS REPORT______ " << endl;
+        cout << "The total campus consumption : " << total_consumption << "KWh" << endl;
+        cout << "The most efficient building is " << most_efficient_building << endl;
+        cout << "The least efficient building is " << least_efficient_building << endl;
+        cout << "Number of unresolved alerts: " << unresolved << endl;
+        cout << "Number of resolved alerts: " << resolved << endl;
+    }
     cout << "-----------------------------" << endl;
 
         cout << "1. Back to menu" << endl;
