@@ -22,19 +22,20 @@ void generateMonthlyCampusReport(building buildings[], int building_counter , En
     float min_consumption = 0.0;
     float max_consumption = 0.0;
     bool first_record = true;
-    float curr_efficiency_score = 0.0;
+   
     for (int i = 0; i < reading_counter; i++) {
         if (reading[i].month == target_month) {
             total_consumption += reading[i].consumption_value;
 
+            float curr_efficiency_score = 0.0;
             string currentBuildingName = "Unknown";
+
             for (int j = 0; j < building_counter; j++) {
                 if (buildings[j].ID == reading[i].BuildingID) { 
                     currentBuildingName = buildings[j].Name;
-                    int curr_eff = 0;
-                    for (int i = 0; i < building_counter; i++) {
-                        if (buildings[i].Name == currentBuildingName) {
-                            curr_eff = (buildings[i].Monthly_Limit - reading[j].consumption_value) * 100 / buildings[i].Monthly_Limit;
+                    for (int k = 0; k < building_counter; k++) {
+                        if (buildings[k].Name == currentBuildingName) {
+                            curr_efficiency_score = ((buildings[k].Monthly_Limit - reading[i].consumption_value) * 100) / buildings[k].Monthly_Limit;
                         }
                     }
                     break;
