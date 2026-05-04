@@ -14,8 +14,6 @@ struct building
 };
 // declare function to calculate efficiency score --> sondus
 void calculateEfficiencyScore(building buildings[], int building_counter);
-// declare function to calculate efficiency score for a month
-float calcEfficiencyFormonth(building buildings[], int building_counter, int consumption_value,string building_name);
 // declare function to add new building --> basmala
 void AddBuilding(building buildings[], int& building_counter);
 
