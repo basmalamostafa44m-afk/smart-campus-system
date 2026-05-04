@@ -9,13 +9,4 @@ using namespace std;
 
 
 //declare function to generate monthly campus report---> Eman
-void generateMonthlyCampusReport(building buildings[], int building_counter, int numberOfUnresolvedAlerts , int numberOfResolvedAlerts);
-
-//declare function to calculate Total Campus Consumption--> Eman
-void calculateTotalCampusConsumption(building buildings[], int building_counter);
-
-//declare function to find the most efficient building--> Eman
-void findMostEfficientBuilding(building buildings[], int building_counter);
-
-//declare function to find the least efficient building--> Eman
-void findLeastEfficientBuilding(building buildings[], int building_counter);
+void generateMonthlyCampusReport(building buildings[], int building_counter, EnergyReading reading[],int reading_counter, Alert alerts[],int alert_counter);

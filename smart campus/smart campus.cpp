@@ -77,7 +77,7 @@ void menu() {
 			calculateEfficiencyScore(buildings, building_counter);
 		}
 		else if (choice == 6) {
-			generateMonthlyCampusReport(buildings, building_counter, numberOfUnresolvedAlerts, numberOfResolvedAlerts);
+			generateMonthlyCampusReport(buildings, building_counter,Readings, reading_counter, alerts, alert_counter);
 		}
 		else if (choice == 7) {
 			resolveAlert(alerts, alert_counter, numberOfResolvedAlerts, numberOfUnresolvedAlerts);

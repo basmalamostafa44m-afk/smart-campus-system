@@ -38,7 +38,16 @@ void calculateEfficiencyScore(building buildings[],int building_counter) {
 	
 
 }
-
+//define function to calculate efficiency score for a month
+float calcEfficiencyForMonth(building buildings[], int building_counter, int consumption_value , string building_name) {
+	int curr_eff = 0;
+	for (int i = 0; i < building_counter; i++) {
+		if (buildings[i].Name == building_name) {
+			curr_eff = (buildings[i].Monthly_Limit - consumption_value) * 100 / buildings[i].Monthly_Limit;
+		}
+	 }
+	return curr_eff;
+}
 //define function to add new building ---> basmala
 void AddBuilding(building buildings[], int& building_counter)
 {
@@ -150,3 +159,6 @@ void displayBuildingInfo(building buildings[], int building_counter) {
 	
 
 }
+
+
+
