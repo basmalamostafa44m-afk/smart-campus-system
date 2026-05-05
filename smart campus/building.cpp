@@ -6,11 +6,21 @@
 #include "admin.h"
 using namespace std;
 // define function to calculate efficiency score --> sondus
-void calculateEfficiencyScore(building buildings[],int building_counter) {
+void calculateEfficiencyScore(building buildings[],int building_counter,EnergyReading readings[],int reading_counter) {
+	cout << "enter month" << endl;
+	string month;
+	cin >> month;
 	for (int i = 0; i < building_counter; i++) {
+		float conspermonth = 0.0;
+		for (int j = 0; j < reading_counter; j++) {
+			if (buildings[i].ID == readings[j].BuildingID&& month==readings[j].month) {
+				conspermonth = readings[j].consumption_value;
+				break;
+			}
+		}
 		if (buildings[i].Monthly_Limit > 0) {
 
-			buildings[i].Efficiency_Score = ((buildings[i].Monthly_Limit - buildings[i].Total_consumption) / buildings[i].Monthly_Limit) * 100;
+			buildings[i].Efficiency_Score = ((buildings[i].Monthly_Limit - conspermonth) / buildings[i].Monthly_Limit) * 100;
 		}
 		else {
 			buildings[i].Efficiency_Score = 0;

@@ -33,11 +33,11 @@ void generateMonthlyCampusReport(building buildings[], int building_counter , En
             for (int j = 0; j < building_counter; j++) {
                 if (buildings[j].ID == reading[i].BuildingID) { 
                     currentBuildingName = buildings[j].Name;
-                    for (int k = 0; k < building_counter; k++) {
-                        if (buildings[k].Name == currentBuildingName) {
-                            curr_efficiency_score = ((buildings[k].Monthly_Limit - reading[i].consumption_value) * 100) / buildings[k].Monthly_Limit;
-                        }
-                    }
+                 
+                      
+                            curr_efficiency_score = ((buildings[j].Monthly_Limit - reading[i].consumption_value) * 100) / buildings[j].Monthly_Limit;
+                        
+                    
                     break;
                 }
             }
