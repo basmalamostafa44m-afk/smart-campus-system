@@ -74,7 +74,7 @@ void menu() {
 			displayOverconsumption(alerts, alert_counter);
 		}
 		else if (choice == 5) {
-			calculateEfficiencyScore(buildings, building_counter);
+			calculateEfficiencyScore(buildings, building_counter,Readings,reading_counter);
 		}
 		else if (choice == 6) {
 			generateMonthlyCampusReport(buildings, building_counter,Readings, reading_counter, alerts, alert_counter);

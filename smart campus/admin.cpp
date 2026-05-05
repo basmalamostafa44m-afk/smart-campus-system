@@ -54,8 +54,16 @@ void admin_signup(Admin admins[], int& current_admin_numbers) {
         string newuser, newpass;
         cout << "please enter username: "<< endl;
 		getline(cin, newuser);
+        if (newuser == " " ) {
+            cout << "invalid user please try again" << endl;
+            admin_signup(admins, current_admin_numbers);
+        }
         cout << "please enter password: " << endl;
 		getline(cin, newpass);
+        if ( newpass == " ") {
+            cout << "invalid password please try again" << endl;
+            admin_signup(admins, current_admin_numbers);
+        }
          for(int i = 0 ; i < current_admin_numbers; i++) {
             if (admins[i].user_name == newuser) {
                 cout << "Username already exist! Please try again." << endl;

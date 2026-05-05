@@ -2,6 +2,7 @@
 #include <string>
 using namespace std;
 // declare building struct
+struct EnergyReading;
 struct building
 {
 	int ID;
@@ -13,7 +14,7 @@ struct building
 
 };
 // declare function to calculate efficiency score --> sondus
-void calculateEfficiencyScore(building buildings[], int building_counter);
+void calculateEfficiencyScore(building buildings[], int building_counter, EnergyReading readings[], int reading_counter);
 // declare function to add new building --> basmala
 void AddBuilding(building buildings[], int& building_counter);
 
